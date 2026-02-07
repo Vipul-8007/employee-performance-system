@@ -3,7 +3,13 @@
     {
       "route": "/graphql",
       "allowedRoles": ["anonymous"],
+      "methods": ["GET", "POST", "OPTIONS"],
       "rewrite": "https://insurewise-backend-vipul-h5dxatbqcd8f8ec9.centralindia-01.azurewebsites.net/graphql"
     }
-  ]
+  ],
+  "globalHeaders": {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS"
+  }
 }
