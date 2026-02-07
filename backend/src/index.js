@@ -12,12 +12,14 @@ const app = express();
 app.use(
   cors({
     origin: "*",
-    credentials: true,
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
+
+app.options("*", cors());
 app.use(express.json());
 
-// MongoDB
 connectDB();
 
 const server = new ApolloServer({
@@ -25,28 +27,23 @@ const server = new ApolloServer({
   resolvers,
   context: ({ req }) => {
     const authHeader = req.headers.authorization || "";
-
     const token = authHeader.startsWith("Bearer ")
       ? authHeader.split(" ")[1]
       : authHeader;
-
     return { token };
   },
 });
 
 async function startServer() {
   await server.start();
+
   server.applyMiddleware({
     app,
     path: "/graphql",
   });
 
-  const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => {
-    console.log(
-      `Server running at http://localhost:${PORT}${server.graphqlPath}`,
-    );
-  });
+  const PORT = process.env.PORT || 8080;
+  app.listen(PORT, () => console.log(`GraphQL ready at /graphql`));
 }
 
 startServer();
