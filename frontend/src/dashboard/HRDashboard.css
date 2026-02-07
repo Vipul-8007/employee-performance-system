@@ -1,0 +1,48 @@
+.hr-page {
+  padding: 30px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+.hr-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.hr-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.hr-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.hr-table th,
+.hr-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.hike {
+  color: #1976d2;
+}
+
+.salary {
+  color: #2e7d32;
+}
+
+.promo-yes {
+  color: green;
+  font-weight: bold;
+}
+
+.promo-no {
+  color: red;
+  font-weight: bold;
+}

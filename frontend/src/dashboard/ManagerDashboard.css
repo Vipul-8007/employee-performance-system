@@ -1,0 +1,138 @@
+/*PAGE*/
+.manager-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e3f2fd, #f5f7fb);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 90px;
+}
+
+/*HEADER */
+.manager-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 24px;
+  border-bottom: 1px solid #e5e7eb;
+  box-sizing: border-box;
+}
+
+/* Header title */
+.manager-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Logout button */
+.logout-btn {
+  background: transparent;
+  border: 1.5px solid #dc2626;
+  color: #dc2626;
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+/* CARD */
+.manager-card {
+  width: 420px;
+  background: #ffffff;
+  padding: 22px 26px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Card heading */
+.manager-card h3 {
+  text-align: center;
+  margin-bottom: 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+/* FORM */
+.manager-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.manager-card label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 2px;
+  margin-top: 10px;
+}
+
+/* Inputs & Select */
+.manager-card input,
+.manager-card select {
+  width: 100%;
+  padding: 6px 4px;
+  font-size: 14px;
+  border: none;
+  border-bottom: 2px solid #d1d5db;
+  background: transparent;
+  outline: none;
+  margin-bottom: 6px;
+  transition: border-color 0.25s;
+}
+
+/* Focus effect */
+.manager-card input:focus,
+.manager-card select:focus {
+  border-bottom-color: #2563eb;
+}
+
+/* Dropdown cursor */
+.manager-card select {
+  cursor: pointer;
+}
+
+.manager-card button {
+  width: 100%;
+  margin-top: 18px;
+  padding: 10px;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.manager-card button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* MESSAGE */
+.info-text {
+  margin-bottom: 10px;
+  font-size: 13px;
+  text-align: center;
+}

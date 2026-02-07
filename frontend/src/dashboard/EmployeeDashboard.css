@@ -1,0 +1,107 @@
+.employee-container {
+  padding: 25px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+.employee-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.employee-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 22px;
+}
+
+.employee-name {
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.logout-btn {
+  background-color: #e53935;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.logout-btn:hover {
+  background-color: #c62828;
+}
+
+.no-data-text {
+  font-size: 16px;
+  color: #555;
+  margin-top: 20px;
+}
+
+.performance-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.performance-card {
+  background: #ffffff;
+  padding: 18px 22px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+}
+
+.performance-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.performance-row:last-child {
+  border-bottom: none;
+}
+
+.performance-row span:first-child {
+  color: #475569;
+  font-weight: 500;
+}
+
+.performance-row span:last-child {
+  color: #111827;
+  font-weight: 600;
+}
+
+.hike {
+  color: #2563eb;
+}
+
+.salary {
+  color: #15803d;
+}
+
+.promo-yes {
+  color: #15803d;
+  font-weight: 700;
+}
+
+.promo-no {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+.loading-text {
+  padding: 30px;
+  font-size: 18px;
+}
+
+.error-text {
+  padding: 20px;
+  color: red;
+}
