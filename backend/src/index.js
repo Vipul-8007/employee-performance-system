@@ -19,7 +19,6 @@ app.use(
   }),
 );
 
-app.options("*", cors());
 app.use(express.json());
 
 connectDB();
@@ -31,7 +30,7 @@ const server = new ApolloServer({
     const authHeader = req.headers.authorization || "";
     const token = authHeader.startsWith("Bearer ")
       ? authHeader.split(" ")[1]
-      : authHeader;
+      : null;
 
     return { token };
   },
@@ -48,8 +47,7 @@ async function startServer() {
 
   const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-    console.log(`GraphQL: /graphql`);
+    console.log(`GraphQL endpoint: http://localhost:${PORT}/graphql`);
   });
 }
 
