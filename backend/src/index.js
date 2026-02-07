@@ -9,7 +9,12 @@ const resolvers = require("./graphql/resolvers");
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+  }),
+);
 app.use(express.json());
 
 // MongoDB
@@ -31,7 +36,10 @@ const server = new ApolloServer({
 
 async function startServer() {
   await server.start();
-  server.applyMiddleware({ app });
+  server.applyMiddleware({
+    app,
+    path: "/graphql",
+  });
 
   const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => {
