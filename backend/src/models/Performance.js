@@ -10,7 +10,7 @@ const performanceSchema = new mongoose.Schema(
 
     evaluator: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User", // Manager / HR
+      ref: "User",
       required: true,
     },
 
@@ -60,5 +60,7 @@ const performanceSchema = new mongoose.Schema(
   },
   { timestamps: true },
 );
+
+performanceSchema.index({ employee: 1 }, { unique: true });
 
 module.exports = mongoose.model("Performance", performanceSchema);

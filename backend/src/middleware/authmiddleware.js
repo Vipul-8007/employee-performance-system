@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 const protect = async (context) => {
-  if (!context.token) {
+  if (!context || !context.token) {
     throw new Error("Not authorized, no token");
   }
 

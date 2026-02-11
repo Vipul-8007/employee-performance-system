@@ -5,22 +5,22 @@ import client from "../apollo/client";
 
 import "./HRDashboard.css";
 
-const ALL_PERFORMANCES = gql`
-  query AllPerformances {
-    allPerformances {
-      id
+const HR_EMPLOYEE_OVERVIEW = gql`
+  query HrEmployeeOverview {
+    hrEmployeeOverview {
       employee {
+        id
         name
         email
       }
-      rating
-      skillLevel
-      attendanceScore
-      hikePercentage
-      revisedSalary
-      promotionRecommendation
-      evaluator {
-        name
+      performance {
+        rating
+        hikePercentage
+        revisedSalary
+        promotionRecommendation
+        evaluator {
+          name
+        }
       }
     }
   }
@@ -30,7 +30,7 @@ const HRDashboard = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
-  const { loading, error, data } = useQuery(ALL_PERFORMANCES, {
+  const { loading, error, data } = useQuery(HR_EMPLOYEE_OVERVIEW, {
     skip: !token,
     fetchPolicy: "network-only",
   });
@@ -69,23 +69,42 @@ const HRDashboard = () => {
             </tr>
           </thead>
           <tbody>
-            {data.allPerformances.map((item) => (
-              <tr key={item.id}>
+            {data.hrEmployeeOverview.map((item) => (
+              <tr key={item.employee.id}>
                 <td>{item.employee.name}</td>
                 <td>{item.employee.email}</td>
-                <td>{item.rating}</td>
-                <td className="hike">{item.hikePercentage}%</td>
-                <td className="salary">₹{item.revisedSalary}</td>
+
+                <td>
+                  {item.performance ? item.performance.rating : "Not Evaluated"}
+                </td>
+
+                <td className="hike">
+                  {item.performance
+                    ? `${item.performance.hikePercentage}%`
+                    : "-"}
+                </td>
+
+                <td className="salary">
+                  {item.performance
+                    ? `₹${item.performance.revisedSalary}`
+                    : "-"}
+                </td>
+
                 <td
                   className={
-                    item.promotionRecommendation === "YES"
+                    item.performance?.promotionRecommendation === "YES"
                       ? "promo-yes"
-                      : "promo-no"
+                      : item.performance
+                        ? "promo-no"
+                        : ""
                   }
                 >
-                  {item.promotionRecommendation}
+                  {item.performance
+                    ? item.performance.promotionRecommendation
+                    : "Not Evaluated"}
                 </td>
-                <td>{item.evaluator.name}</td>
+
+                <td>{item.performance?.evaluator?.name || "-"}</td>
               </tr>
             ))}
           </tbody>

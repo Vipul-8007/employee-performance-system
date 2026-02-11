@@ -6,7 +6,7 @@ import client from "../apollo/client";
 
 import "./ManagerDashboard.css";
 
-/* Get Employees */
+// Get Employees
 const GET_EMPLOYEES = gql`
   query GetEmployees {
     employees {
@@ -17,7 +17,7 @@ const GET_EMPLOYEES = gql`
   }
 `;
 
-/* Evaluate Performance */
+// Evaluate Performance
 const EVALUATE_EMPLOYEE = gql`
   mutation EvaluatePerformance(
     $employeeId: ID!
@@ -53,7 +53,7 @@ const ManagerDashboard = () => {
 
   const [message, setMessage] = useState("");
 
-  /* Fetch employees */
+  // Fetch employees
   const token = localStorage.getItem("token");
 
   const {

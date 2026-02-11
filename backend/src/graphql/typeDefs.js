@@ -1,7 +1,7 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-  # ================= USERS =================
+  # USERS
   type User {
     id: ID!
     name: String!
@@ -14,7 +14,7 @@ const typeDefs = gql`
     user: User!
   }
 
-  # ================= PERFORMANCE =================
+  # PERFORMANCE
   type Performance {
     id: ID!
     employee: User!
@@ -30,7 +30,13 @@ const typeDefs = gql`
     createdAt: String
   }
 
-  # ================= QUERIES =================
+  # HR OVERVIEW TYPE
+  type HRView {
+    employee: User!
+    performance: Performance
+  }
+
+  # QUERIES
   type Query {
     hello: String
     me: User
@@ -44,11 +50,11 @@ const typeDefs = gql`
     # Manager / HR
     employeePerformance(employeeId: ID!): [Performance!]!
 
-    # HR only
-    allPerformances: [Performance!]!
+    #HR Dashboard Overview
+    hrEmployeeOverview: [HRView!]!
   }
 
-  # ================= MUTATIONS =================
+  # MUTATIONS
   type Mutation {
     register(
       name: String!

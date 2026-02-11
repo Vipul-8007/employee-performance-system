@@ -28,6 +28,12 @@ const userSchema = new mongoose.Schema(
       enum: ["EMPLOYEE", "MANAGER", "HR"],
       default: "EMPLOYEE",
     },
+
+    yearsOfExperience: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
   },
   { timestamps: true },
 );
@@ -40,7 +46,7 @@ userSchema.pre("save", async function () {
   this.password = await bcrypt.hash(this.password, salt);
 });
 
-// Password compare method (login ke liye)
+// Password compare method
 userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };

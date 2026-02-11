@@ -4,7 +4,7 @@ import { useMutation } from "@apollo/client/react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
 
-/* Updated Register Mutation */
+/* GraphQL Register Mutation */
 const REGISTER_USER = gql`
   mutation Register(
     $name: String!
